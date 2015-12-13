@@ -1,0 +1,18 @@
+<%- model_class = Post -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+    <% @posts.each do |post| %>
+    <h3> <%= link_to post.title, post_path(post) %> </h3>
+    <p> <%= truncate post.body %> </p>
+    <p> <%= image_tag(post.image) %> </p>
+    <p> Posted by: <%= post.user.name %> on <%= post.created_at.strftime '%A, %B %e, %Y' %> </p>
+    <p> <%= link_to t('.edit', :default => t("helpers.links.edit")), edit_post_path(post), :class => 'btn btn-default btn-xs' %>
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")), post_path(post), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },:class => 'btn btn-xs btn-danger' %>
+        <%= link_to t('.comment', :default => t("helpers.links.leave_comment")), post_path(post), :class => 'btn btn-info btn-xs' %>
+    </p>
+    <p>&nbsp;</p>    
+    <% end %>
+
+
+<%= link_to t('.new', :default => t("helpers.links.new")),new_post_path,:class => 'btn btn-primary' %>

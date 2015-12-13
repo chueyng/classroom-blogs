@@ -1,0 +1,42 @@
+<%- model_class = Post -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @post.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @post.body %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
+  <dd><%= image_tag(@post.image) %></dd>
+</dl>
+
+<dl class="dl-horizontal">
+  <% @post.comments.each do |comment| %>
+  <dt><strong>Comments</strong></dt>
+  <dd><%= comment.content %></dd>
+  <dt>Last update</dt>
+  <dd><%= time_ago_in_words comment.created_at %> ago</dd>
+  <dd><%= link_to t('.destroy', :default => t("helpers.links.destroy")), [@post, comment], :method => :delete, :data => {:confirm => t('.confirm', :default => t("helper.links.confirm", :default => 'Are you sure?'))},
+    :class => 'btn btn-danger' %></dd>
+  <p>&nbsp;</p>
+<% end %>
+
+<%=form_for [@post, @post.comments.build] do |f| %>
+<dt><strong>Post a comment</strong></dt>
+<dd><%= f.text_area :content, :size => '40x10' %></dd>
+<dd><%= f.submit "Publish", :class => 'btn btn-default' %></dd>
+<% end %>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              posts_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_post_path(@post), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              post_path(@post),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+
