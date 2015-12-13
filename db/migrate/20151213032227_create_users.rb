@@ -5,8 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :phone_no
       t.text :email
       t.text :image
-      t.text :pass
-      t.text :pass_conf
+      t.text :pass_digest
 
       t.timestamps null: false
     end

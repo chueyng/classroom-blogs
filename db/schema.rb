@@ -38,11 +38,10 @@ ActiveRecord::Schema.define(version: 20151213113359) do
     t.text     "phone_no"
     t.text     "email"
     t.text     "image"
-    t.text     "pass"
-    t.text     "pass_conf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "role"
+    t.text     "pass_digest"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "role"
   end
 
 end

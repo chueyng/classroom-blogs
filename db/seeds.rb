@@ -26,9 +26,9 @@ p2 = Post.create :title => 'Reading Time', :body => 'Read a fairy tales story', 
 
 
 User.destroy_all
-u1 = User.create :name => 'Craigsy', :email => 'craigsy@gmail.com', :pass => 'chicken', :pass_conf => 'chicken', :phone_no => '0482823832', :role => 1
-u2 = User.create :name => 'Jonesy', :email => 'jonesy@gmail.com', :pass => 'chicken', :pass_conf => 'chicken', :phone_no => '0489328332', :role => 2
-u3 = User.create :name => 'Linda', :email => 'linda@gmail.com', :pass => 'chicken', :pass_conf => 'chicken', :phone_no => '0472393933', :role => 1
+u1 = User.create :name => 'Craigsy', :email => 'craigsy@gmail.com', :phone_no => '0482823832', :role => 1
+u2 = User.create :name => 'Jonesy', :email => 'jonesy@gmail.com', :phone_no => '0489328332', :role => 2
+u3 = User.create :name => 'Linda', :email => 'linda@gmail.com', :phone_no => '0472393933', :role => 1
 
 # u1.classrooms << c1
 # u2.classrooms << c2
