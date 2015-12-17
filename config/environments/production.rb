@@ -35,6 +35,21 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  
+  # Change mail delivery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.default_url_options = {host: 'classroom-blogs.herokuapp.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                  587,
+      domain:               'gmail.com',
+      user_name:            ENV['username'],
+      password:             ENV['password'],
+      authentication:       'login',
+      enable_starttls_auto: true
+  }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.

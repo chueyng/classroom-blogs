@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Classroomblog" %></title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -36,48 +36,109 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="<%= params[:controller] %>-<%= params[:action] %>">
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Classroom Blogs</a>
+        <a class="navbar-brand">ClassroomBlogs</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Home", "/"  %></li>
-            <li><%= link_to "Contact Us", "#"  %></li>
-            <li><%= link_to "Log In", "#" %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <% if @current_user.present? %>
+              <li><%= link_to("Edit profile", users_edit_path) %></li>
+              <li><%= link_to("Logout #{ @current_user.name }", login_path, :method => :delete) %></li>
+            <% else %>       
+              <li><%= link_to new_user_path do%>
+                  <span class="glyphicon glyphicon-user"> </span> Sign up
+                  <% end %>
+              </li>
+              <li><%= link_to login_path do %>
+                <span class="glyphicon glyphicon-log-in"> </span> Login
+              <% end %>
+              </li>
+            <% end %>  
+            <!-- <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"> </span> Login</a>
+                <div class="dropdown-menu" style="padding: 17px;" role="dialog">
+                  <form class="form" id="formLogin"> 
+                    <input name="username" id="username" type="text" placeholder="Username"> 
+                    <input name="password" id="password" type="password" placeholder="Password"><br>
+                    <button type="button" id="btnLogin" class="btn">Login</button>
+                  </form>
+                </div>
+            </li>     --> 
           </ul>
         </div>
       </div>
     </div>
-
+ <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Why ClassroomBlogs?</h1>
+                <hr>
+                <p>ClassroomBlogs is the school blogging platform on the web. It's easy, safe and packed with features.</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+        </div>
+    </header>
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">ClassroomBlogs</h2>
+                    <hr class="light">
+                    <p class="text-faded">Blogs are online journals that look like websites. They offer us a chance to communicate, share and inform you about your child’s education. You can also use the icons/widgets on the side to determine who is visiting the blog, list other sites to visit, see recent comments and much more. They will form an integral part of our school strategy for improving parent information/communication and for giving the children an authentic audience for their work.</p>
+                    <a href="#main" class="btn btn-default btn-xl">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
+          <section id="main">
+            <div class="container">
           <%= bootstrap_flash %>
-          <%= yield %>
+              <%= yield %>
+            </div>  
+          </section>
         </div>
         <div class="col-lg-3">
+          <% unless @posts_by_month.nil? %>
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Archive</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= render :partial => "posts/posts_archive"  %></li>
             </ul>
           </div><!--/.well -->
+          <% end %>
         </div><!--/span-->
       </div><!--/row-->
-
-      <footer>&nbsp;</footer>
-
-    </div> <!-- /container -->
-
+    </div>  
+      <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
+                    <p>123-456-6789</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
+                    <p><a class="link" href="mailto:feedback@classroom-blog.com">feedback@classroom-blogs.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
   </body>
 </html>

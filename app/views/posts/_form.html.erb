@@ -25,25 +25,17 @@
   <div class="form-group">
     <%= f.label :body, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :body, :class => 'form-control' %>
+      <%= f.text_area :body, :class => 'form-control', size: "60x12" %>
     </div>
     <%=f.error_span(:body) %>
   </div>
   <div class="form-group">
-    <%= f.label :image, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :image, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:image) %>
+    <%= f.label :image, :class => 'control-label col-lg-2'%>
+      <div class="col-lg-10">
+        <%= f.cl_image_upload :image, :class => 'form-control' %>
+      </div>
+    <%= f.error_span(:image) %>
   </div>
-  <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:user_id) %>
-  </div>
-
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>

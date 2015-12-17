@@ -4,9 +4,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    user = User.find params[:user_id]
+    @classroom = user.classroom
+    @posts_by_user = Post.where("user_id = #{params[:user_id]}").order("created_at DESC")
+
+    # @posts = Post.all
+    @posts_by_month = @posts_by_user.group_by {|post| post.created_at.beginning_of_month}
   end
 
+  def by_year_and_month
+    @posts_by_month = Post.all.order("created_at DESC").group_by {|post| post.created_at.beginning_of_month}
+    @posts = Post.where("YEAR(created_at) = ? AND MONTH(created_at) = ?", params[:year], params[:month]).order("created_at DESC")
+  end
+  
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -69,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :image)
+      params.require(:post).permit(:title, :body, :image, :user_id)
     end
 end

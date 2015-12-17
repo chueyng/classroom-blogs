@@ -1,0 +1,11 @@
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+          <h2 class="section-heading">Class Blog Sites</h2>
+          <hr class="primary">
+          <% @users.each do |teacher| %>
+            <p><%= link_to teacher.classroom, posts_user_path(teacher.id) %></p>
+          <% end %>
+      </div>
+    </div>
+

@@ -2,15 +2,18 @@
 #
 # Table name: users
 #
-#  id          :integer          not null, primary key
-#  name        :text
-#  phone_no    :text
-#  email       :text
-#  image       :text
-#  pass_digest :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  role        :text
+#  id              :integer          not null, primary key
+#  name            :string
+#  phone_no        :string
+#  email           :string
+#  image           :string
+#  image_two       :string
+#  password_digest :string
+#  student_name    :string
+#  classroom       :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  role            :string
 #
 
 require 'test_helper'

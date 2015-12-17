@@ -13,3 +13,204 @@
  *= require_tree .
  *= require_self
  */
+
+#about {
+    display: none;
+}
+
+.pages-index #about {
+    display: block;
+}
+
+.pages-index header {
+    background-image: url(http://7-themes.com/data_images/out/73/7022737-book-city-buildings-trees-cars-airplane-clouds-sun.jpg);
+}
+
+.pages-index header .header-content .header-content-inner h1 {
+    color: #333;
+}
+
+.pages-index header .header-content .header-content-inner p {
+    color: #09416c;
+}
+
+html,
+body {
+    color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+}
+
+hr {
+    max-width: 50px;
+    border-color: #f05f40;
+    border-width: 3px;
+}
+
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    color: #f05f40;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+
+a:hover,
+a:focus {
+    color: #eb3812;
+    background-color: transparent;
+}
+
+a:visited {
+    color: #09416c;
+}
+
+h1, h2, h3, h4,h5, h6 {
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+section {
+    padding: 100px 0;
+}
+
+header {
+    background-image: url(http://7-themes.com/data_images/out/53/6953367-book-open-drawing-house-mountains-clouds-sun-car-girl-boy-dog.jpg);
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    -webkit-filter: sepia(40%);     
+    filter: sepia(40%);       
+}
+
+header .header-content {
+    position: relative;
+    width: 100%;
+    padding: 100px 15px;
+    text-align: center;
+}
+
+header .header-content .header-content-inner h1 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+header .header-content .header-content-inner hr {
+    margin: 30px auto;
+}
+
+header .header-content .header-content-inner p {
+    margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ccc;
+}
+
+@media(min-width:768px) {
+    header {
+        min-height: 100%;
+    }
+
+    header .header-content {
+        position: absolute;
+        top: 50%;
+        padding: 0 50px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    header .header-content-inner {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 1000px;
+    }
+
+    header .header-content-inner p {
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 80%;
+        font-size: 18px;
+    }
+}
+
+.navbar-default {
+    border-color: rgba(34,34,34,.05);
+    background-color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #f05f40;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #eb3812;
+}
+
+.navbar-default .nav > li>a,
+.navbar-default .nav>li>a:focus {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navbar-default .nav > li>a:hover,
+.navbar-default .nav>li>a:focus:hover {
+    color: #f05f40;
+}
+
+@media(min-width:768px) {
+    .navbar-default {
+        border-color: rgba(255,255,255,.3);
+        background-color: #fefcec;
+    }
+
+    .navbar-default .navbar-brand {
+        color: #666;
+    }
+
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #f05f40;
+    }
+
+    .navbar-default .nav > li>a,
+    .navbar-default .nav>li>a:focus {
+        color: #f05f40;
+    }
+
+    .navbar-default .nav > li>a:hover,
+    .navbar-default .nav>li>a:focus:hover {
+        color: #666;
+    }
+}
+
+#footer {
+  background: #888;
+}
+
+.link {
+  color: #000;
+}
+
+.login{
+    margin: 0 200px;
+}

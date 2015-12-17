@@ -1,0 +1,5 @@
+<div id="posts-archive">
+    <% @posts_by_month.each do |month, posts| %>
+      <h5><%= link_to "#{month.strftime('%B %Y')} (#{posts.count}):", posts_user_path(:year => month.year, :month => month.month) %></h5>
+    <% end %>
+</div>

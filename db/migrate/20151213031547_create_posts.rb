@@ -1,9 +1,9 @@
 class CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
-      t.text :title
-      t.text :body
-      t.text :image
+      t.string :title
+      t.string :body
+      t.string :image
       t.integer :user_id
 
       t.timestamps null: false
