@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20151213113359) do
     t.string   "phone_no"
     t.string   "email"
     t.string   "image"
-    t.string   "image_two"
     t.string   "password_digest"
     t.string   "student_name"
     t.string   "classroom"

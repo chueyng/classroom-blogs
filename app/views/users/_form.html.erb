@@ -16,77 +16,86 @@
   <% end %>
   <div class="form-group">
     <%= f.label :name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-5">
       <%= f.text_field :name, :class => 'form-control', :required => true %>
     </div>
     <%=f.error_span(:name) %>
   </div>
   <div class="form-group">
     <%= f.label :email, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-5">
       <%= f.text_field :email, :class => 'form-control', :required => true %>
     </div>
     <%=f.error_span(:email) %>
   </div>
    <div class="form-group">
     <%= f.label :mobile, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-5">
       <%= f.text_field :phone_no, :class => 'form-control', :required => true %>
     </div>
     <%=f.error_span(:phone_no) %>
   </div> 
   <div class="form-group">
     <%= f.label :student_name, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-5">
       <%= f.text_field :student_name, :class => 'form-control', :required => true %>
     </div>
     <%=f.error_span(:student_name) %>
   </div>
   <div class="form-group">
     <%= f.label :classroom, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
+    <div class="col-lg-5">
       <%= f.select :classroom, [["Kindergarten Green", "Kindergarten Green"], ["Kindergarten Red", "Kindergarten Red"],
                                 ["1 Green", "1 Green"], ["1 Red", "1 Red"],
                                 ["2 Green", "2 Green"], ["2 Red", "2 Red"],
                                 ["3 Green", "3 Green"], ["3 Red", "3 Red"],
                                 ["4 Green", "4 Green"], ["4 Red", "4 Red"],
                                 ["5 Green", "5 Green"], ["5 Red", "5 Red"],
-                                ["6 Green", "6 Green"], ["6 Red", "6 Red"]], :include_blank => true, :class => 'form-control', :required => true %>
+                                ["6 Green", "6 Green"], ["6 Red", "6 Red"]], :include_blank => true, :class => "form-control", :required => true %>
     </div>
     <%=f.error_span(:classroom) %>
   </div>
   <div class="form-group">
       <%= f.label :image, :class => 'control-label col-lg-2'%>
-      <div class="col-lg-10">
+      <div class="col-lg-5">
         <%= f.cl_image_upload :image, :class => 'form-control' %>
       </div>
       <%= f.error_span(:image) %>
   </div>
+  <% if @current_user.present? && @current_user.role != 'admin' %>
+    <div class="form-group">
+      <%= f.label :role, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-5">
+       <%= @user.role %>
+      </div>
+      <%=f.error_span(:role) %>
+    </div>
+  <% end %>
   <% if @current_user.present? && @current_user.role == 'admin' %>
     <div class="form-group">
       <%= f.label :role, :class => 'control-label col-lg-2' %>
-      <div class="col-lg-10">
+      <div class="col-lg-5">
         <%= f.select :role, [["Admin", "admin"], ["Teacher", "teacher"], ["Parents","parents"]], :class => 'form-control', :required => true %>
       </div>
       <%=f.error_span(:role) %>
     </div>
     <div class="form-group">
       <%= f.label :password, :class => 'control-label col-lg-2' %>
-      <div class="col-lg-10">
+      <div class="col-lg-5">
         <%= f.password_field :password, :class => 'form-control' %>
       </div>
       <%=f.error_span(:password) %>
     </div>
     <div class="form-group">
       <%= f.label :password_confirmation, :class => 'control-label col-lg-2' %>
-      <div class="col-lg-10">
+      <div class="col-lg-5">
         <%= f.password_field :password_confirmation, :class => 'form-control' %>
       </div>
       <%=f.error_span(:password_confirmation) %>
     </div>
   <% end %>      
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
+    <div class="col-lg-offset-2 col-lg-5">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 users_path, :class => 'btn btn-default' %>

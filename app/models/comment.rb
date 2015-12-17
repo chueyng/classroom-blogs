@@ -12,6 +12,7 @@
 
 class Comment < ActiveRecord::Base
   belongs_to :post
+  belongs_to :user
 
   def owner?(user)
     user.present? && (self.user_id == user.id)    #user.present: user logged in, self.user_id: comment's user, user.id: log-in user

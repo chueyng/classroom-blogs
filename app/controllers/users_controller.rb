@@ -50,8 +50,8 @@ class UsersController < ApplicationController
       if @user.save
         UserMailer.signup_confirmation( @user ).deliver unless @current_user.present?
         UserMailer.new_user_notification( @user ).deliver unless @current_user.present?
-        format.html { redirect_to root_path, notice: 'Signed up successfully.' }
-        format.json { render :index, status: :created, location: root_path }
+        format.html { redirect_to user_path(@user), notice: 'User was successfully created.' }
+        format.json { render :index, status: :created, location: user_path(@user) }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -62,8 +62,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update    
-    # @user = @current_user
-
     @user = User.find params[:id]
     @user = @current_user if @user.nil?
 
@@ -106,7 +104,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :phone_no, :email, :role, :student_name, :classroom, :password, :password_confirmation, )
+      params.require(:user).permit(:name, :phone_no, :email, :role, :student_name, :classroom, :password, :password_confirmation )
     end
 
     def check_if_logged_in

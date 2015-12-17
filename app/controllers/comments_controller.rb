@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
     
     respond_to do |format|
       if @comment.save
+        @current_user.comments << @comment
         format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -43,6 +44,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
+         @current_user.comments << @comment
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @comment }
       else
@@ -60,7 +62,7 @@ class CommentsController < ApplicationController
 
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to @comment.post, notice: 'Comment was successfully deleted.' }
+      format.html { redirect_to posts_user_path(@current_user), notice: 'Comment was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +75,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :post_id, :user_id)
+      params.require(:comment).permit(:content, :post_id)
     end
 end

@@ -1,5 +1,7 @@
 <%=form_tag '/login', :html => { :class => "form-horizontal session" } do %>
-
+  <% if flash[:error].present? %>
+    <h2><%= flash[:error] %></h2>
+  <% end %>
   <div class="form-group">
     <%= label_tag 'Email', nil, :class => 'control-label col-lg-2'%>
     <div class="col-lg-10">

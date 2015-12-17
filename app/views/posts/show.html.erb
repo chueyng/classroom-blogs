@@ -44,6 +44,6 @@
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                 :class => 'btn btn-danger' %>
 <% end %>                
-<% if @current_user.present? && @current_user.role == 'teacher' %>
+<% if @current_user.present? && @current_user.role == 'teacher' && @current_user == @post.user %>
   <%= link_to t('.new', :default => t("helpers.links.make_a_new_post")),new_post_path,:class => 'btn btn-info'%>    
 <% end %>
