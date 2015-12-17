@@ -57,9 +57,6 @@ hr.light {
 
 a {
     color: #f05f40;
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
 }
 
 a:hover,
@@ -131,9 +128,6 @@ header .header-content .header-content-inner p {
         position: absolute;
         top: 50%;
         padding: 0 50px;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     }
 
     header .header-content-inner {

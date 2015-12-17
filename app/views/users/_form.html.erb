@@ -58,7 +58,7 @@
   <div class="form-group">
       <%= f.label :image, :class => 'control-label col-lg-2'%>
       <div class="col-lg-5">
-        <%= f.cl_image_upload :image, :class => 'form-control' %>
+        <%= f.cl_image_upload :image, :class => 'form-control'%> <%= image_tag(@user.image) unless @user.image.nil? %>
       </div>
       <%= f.error_span(:image) %>
   </div>
