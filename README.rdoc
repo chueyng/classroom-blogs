@@ -1,28 +1,27 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project 1: Classroom blogs application.
 
-Things you may want to cover:
+This blog app is a platform created for parents and teachers to proactively communicate and information sharing in a versatile cyber environment. The parents seamlessly keep in touch with teachers to understand and help improve academic development pertaining to their own children and vice-versa. 
 
-* Ruby version
+Few things that I've learnt and covered are:
 
-* System dependencies
+* Ruby on Rail
 
-* Configuration
+* CSS
 
-* Database creation
+* Postgresql
 
-* Database initialization
+* Content upload at Heroku web hosting
 
-* How to run the test suite
+* Keep the password safely in a separate file (eg. config file)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Cloudinary for uploading image
 
-* Deployment instructions
+* Email configuration
 
-* ...
+* Create Archive
 
+* Login & session
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I am new to Ruby on Rail, and I really enjoy the moment of getting know it better in day-to-day basis. There is a lots space to improve my knowledge with this regard specifically on routing modules.
