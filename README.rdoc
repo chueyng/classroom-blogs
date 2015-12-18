@@ -25,3 +25,5 @@ Few things that I've learnt and covered are:
 * Login & session
 
 I am new to Ruby on Rail, and I really enjoy the moment of getting know it better in day-to-day basis. There is a lots space to improve my knowledge with this regard specifically on routing modules.
+
+Please feel free to click this link: http://classroom-blogs.herokuapp.com/ to know about my app and remember give me your review. Thank you.
