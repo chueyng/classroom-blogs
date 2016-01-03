@@ -1,3 +1,4 @@
+#Project 1: Classroom blogs
 This blog app is a platform created for parents and teachers to proactively communicate and information sharing in a versatile cyber environment. The parents seamlessly keep in touch with teachers to understand and help improve academic development pertaining to their own children and vice-versa.
 
 [Diagram for here is its] (https://drive.google.com/file/d/0B9JpD5RhuP66NzZ0U3lqQlFpakk/view?usp=sharing)
