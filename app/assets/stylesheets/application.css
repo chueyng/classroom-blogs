@@ -23,7 +23,7 @@
 }
 
 .pages-index header {
-    background-image: url(http://7-themes.com/data_images/out/73/7022737-book-city-buildings-trees-cars-airplane-clouds-sun.jpg);
+    background-image: url("bg-1.jpg");
 }
 
 .pages-index header .header-content .header-content-inner h1 {
@@ -84,14 +84,14 @@ section {
 }
 
 header {
-    background-image: url(http://7-themes.com/data_images/out/53/6953367-book-open-drawing-house-mountains-clouds-sun-car-girl-boy-dog.jpg);
+    background-image: url("bg-2.jpg");
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    -webkit-filter: sepia(40%);     
-    filter: sepia(40%);       
+    -webkit-filter: sepia(40%);
+    filter: sepia(40%);
 }
 
 header .header-content {
