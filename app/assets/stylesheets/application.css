@@ -23,7 +23,7 @@
 }
 
 .pages-index header {
-    background-image: url("bg-1.jpg");
+    background-image: image-url("bg-1.jpg");
 }
 
 .pages-index header .header-content .header-content-inner h1 {
@@ -84,7 +84,7 @@ section {
 }
 
 header {
-    background-image: url("bg-2.jpg");
+    background-image: image-url("bg-2.jpg");
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
